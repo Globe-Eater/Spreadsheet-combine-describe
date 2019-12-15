@@ -24,17 +24,20 @@ import pandas as pd
 
 # Create a list of pathnames to concatinate.
 pathnames = []
-
 # Ask user for pathnames
 Go = True
 while Go:
-	pathnames = pathnames.append(input('Please enter a pathname for a spreadsheet and press enter >'))
-	answer = input('Is that that you want concated y/n?')
+	sheet = input('Please enter a pathname for a spreadsheet and press enter >')
+	pathnames.append(sheet)
+	print(pathnames[0])
+	for i in pathnames:
+		print(pathnames)
+	answer = input('Is that all you want concated y/n?')
 	while Go:
 		if answer == 'y':
-			break
+			Go = False
 		elif answer == 'n':
-			continue
+			print('Okay!')
 		else:
 			"Please type y or n."
 
@@ -47,14 +50,14 @@ df.info()
 Go = True
 
 while Go:
-    choice = input('Would you like to save? yes/no:')
-    if choice == 'yes':
+    choice = input('Would you like to save? y/n:')
+    if choice == 'y':
         df.to_excel('Dataset.xlsx')
         print("Save complete.")
         break
         
-    elif choice == 'no':
+    elif choice == 'n':
         print("Closing program.")
         break
     else:
-        print('yes/no')
+        print('y/n')
