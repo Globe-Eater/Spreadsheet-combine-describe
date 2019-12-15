@@ -22,6 +22,22 @@ Psudo code:
 
 import pandas as pd
 
+# Create a list of pathnames to concatinate.
+pathnames = []
+
+# Ask user for pathnames
+Go = True
+while Go:
+	pathnames = pathnames.append(input('Please enter a pathname for a spreadsheet and press enter >'))
+	answer = input('Is that that you want concated y/n?')
+	while Go:
+		if answer == 'y':
+			break
+		elif answer == 'n':
+			continue
+		else:
+			"Please type y or n."
+
 df = pd.concat(pd.read_excel(sheet_name=None), ignore_index=True)
 
 df.describe()
