@@ -29,7 +29,6 @@ Go = True
 while Go:
 	sheet = input('Please enter a pathname for a spreadsheet and press enter >')
 	pathnames.append(sheet)
-	print(pathnames[0])
 	for i in pathnames:
 		print(pathnames)
 	answer = input('Is that all you want concated y/n?')
@@ -40,6 +39,11 @@ while Go:
 			print('Okay!')
 		else:
 			"Please type y or n."
+def combine(sheets):
+	'''This method is for iterating through a list os spreadsheets and preforming pandas commands on it.
+	arugments:
+		sheets - can be a single item or a list of items.'''
+	pass
 
 df = pd.concat(pd.read_excel(sheet_name=None), ignore_index=True)
 
