@@ -1,0 +1,6 @@
+name: Combine_Sheets
+dependencies:
+  - numpy
+  - pandas
+  - parser
+  - python 3.6
