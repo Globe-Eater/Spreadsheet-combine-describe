@@ -2,8 +2,9 @@
 import unittest
 import sys
 import pandas as pd
+import path
 
-sys.path.insert(0, '/users/kellenbullock/documents/computerscience/messingaround/python_stuff/spreadsheet_tools/Spreadsheet-combine-describe')
+sys.path.insert(0, 'pathname()')
 import Combine_spreadsheets
 
 class test_sheets(unittest.TestCase):
