@@ -28,9 +28,8 @@ def Combine(*args):
 	
 	output:
 	A concatinated dataframe of all the spreadsheets.'''
+	df = pd.concat(*args)
 	print(*args)
-
-
 
 if __name__ == '__main__':
 	parser = ArgumentParser(formatter_class=RawTextHelpFormatter)
