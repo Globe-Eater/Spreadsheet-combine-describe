@@ -1,8 +1,10 @@
 """ This program is for testing Spreadsheet-Combine.py"""
 import unittest
+import sys
 import pandas as pd
-import Combine_spreadsheets
 
+sys.path.insert(0, '/users/kellenbullock/documents/computerscience/messingaround/python_stuff/spreadsheet_tools/Spreadsheet-combine-describe')
+import Combine_spreadsheets
 
 class test_sheets(unittest.TestCase):
 	'''This class is for initialzing the unittest module apart of the python standard library.'''
@@ -11,7 +13,7 @@ class test_sheets(unittest.TestCase):
 		'''Place holder for habbit'''
 		pass
 
- 	def tear_down(self):
+	def tear_down(self):
 		'''Place holder for habbit'''
 		pass
 
@@ -30,10 +32,9 @@ class test_sheets(unittest.TestCase):
 		self.assertEqual(result, pd.concat(df1, df2))
 
 	def all_sheets(self):
-	'''This method is for testing to see if all spreadsheets will be concated together
-	This is the objective of the program.'''
-	
+		'''This method is for testing to see if all spreadsheets will be concated together
+		This is the objective of the program.'''
+		pass
 
 if __name__ == '__main__':
-	unit_test.main()
-
+	unittest.main()
