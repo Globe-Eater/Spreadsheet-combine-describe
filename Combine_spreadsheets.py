@@ -19,45 +19,20 @@ Psudo code:
     Call the info() method
     Call the Describe() method    
 """
-
+from argparse import ArgumentParser
 import pandas as pd
+ 
+def Combine(*args):
+	'''Usage:
+	python Combine_spreadsheets.py <pathname to excelfile> , <additonal paths>
+	
+	output:
+	A concatinated dataframe of all the spreadsheets.'''
+	print(*args.remove('Combine_spreadsheets.py'))
 
-# Create a list of pathnames to concatinate.
-pathnames = []
-# Ask user for pathnames
-Go = True
-while Go:
-	sheet = input('Please enter a pathname for a spreadsheet and press enter >')
-	pathnames.append(sheet)
-	print(pathnames[0])
-	for i in pathnames:
-		print(pathnames)
-	answer = input('Is that all you want concated y/n?')
-	while Go:
-		if answer == 'y':
-			Go = False
-		elif answer == 'n':
-			print('Okay!')
-		else:
-			"Please type y or n."
+Combine()
 
-df = pd.concat(pd.read_excel(sheet_name=None), ignore_index=True)
-
-df.describe()
-
-df.info()
-
-Go = True
-
-while Go:
-    choice = input('Would you like to save? y/n:')
-    if choice == 'y':
-        df.to_excel('Dataset.xlsx')
-        print("Save complete.")
-        break
-        
-    elif choice == 'n':
-        print("Closing program.")
-        break
-    else:
-        print('y/n')
+if __name__ == '__main__':
+	parser = ArgumentParser(formatter_class=RawTextHelpFormatter)
+	parser.add_argument(
+		"files", metavar="file", type=str, nargs='+', help="Please enter the files you want concated:")
