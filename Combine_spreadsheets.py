@@ -19,7 +19,7 @@ Psudo code:
     Call the info() method
     Call the Describe() method    
 """
-from argparse import ArgumentParser
+from argparse import ArgumentParser, RawTextHelpFormatter
 import pandas as pd
  
 def Combine(*args):
@@ -28,11 +28,14 @@ def Combine(*args):
 	
 	output:
 	A concatinated dataframe of all the spreadsheets.'''
-	print(*args.remove('Combine_spreadsheets.py'))
+	print(*args)
 
-Combine()
+
 
 if __name__ == '__main__':
 	parser = ArgumentParser(formatter_class=RawTextHelpFormatter)
 	parser.add_argument(
 		"files", metavar="file", type=str, nargs='+', help="Please enter the files you want concated:")
+	
+	args = parser.parse_args()
+	Combine(args)
