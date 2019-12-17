@@ -1,9 +1,6 @@
 """ This program is for testing Spreadsheet-Combine.py"""
 import unittest
-import sys
 import pandas as pd
-
-sys.path.insert(0, '/users/kellenbullock/documents/computerscience/messingaround/python_stuff/spreadsheet_tools/Spreadsheet-combine-describe')
 import Combine_spreadsheets
 
 class test_sheets(unittest.TestCase):
