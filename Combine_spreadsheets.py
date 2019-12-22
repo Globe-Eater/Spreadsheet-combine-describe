@@ -27,9 +27,10 @@ def Combine(*args):
 	python Combine_spreadsheets.py <pathname to excelfile> , <additonal paths>
 	
 	output:
-	A concatinated dataframe of all the spreadsheets.'''
-	df = pd.concat(*args)
+	A appended dataframe of all the spreadsheets.'''
+	df = df.append(*args)
 	print(*args)
+	return df
 
 if __name__ == '__main__':
 	parser = ArgumentParser(formatter_class=RawTextHelpFormatter)
