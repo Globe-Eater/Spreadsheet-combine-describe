@@ -26,7 +26,7 @@ class test_sheets(unittest.TestCase):
 		df1 = pd.read_excel('test_sheet_1.xlsx')
 		df2 = pd.read_excel('test_sheet_2.xlsx')
 		result = Combine_spreadsheets.combine()
-		self.assertEqual(result, pd.concat(df1, df2))
+		self.assertEqual(result, df1.append(df2))
 
 	def all_sheets(self):
 		'''This method is for testing to see if all spreadsheets will be concated together
