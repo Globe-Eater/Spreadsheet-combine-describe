@@ -19,7 +19,7 @@ Psudo code:
     Call the info() method
     Call the Describe() method    
 """
-from argparse import ArgumentParser, RawTextHelpFormatter
+import sys
 import pandas as pd
  
 def Combine(args):
@@ -28,21 +28,19 @@ def Combine(args):
 	
 	output:
 	A appended dataframe of all the spreadsheets.'''
-	df = pd.DataFrame()
-	sheets = pd.read_excel(io=args)
-	df = df.append(args)
-	print(args)
-	return df
+	data = pd.DataFrame()
+	try:
+		df = pd.read_excel(args)
+		data = data.append(df)
+	except:
+		print('This argument is not a path')
 
+	return data
 if __name__ == '__main__':
-	parser = ArgumentParser(formatter_class=RawTextHelpFormatter)
-	parser.add_argument(
-		"files", metavar="file", type=str, nargs='+', help="Please enter the files you want concated:")
-	args = parser.parse_args()
-	print(args)
-	Combine(args)
+	Combine(sys.argv)
 
 # Here is how I would do this normally:
+'''
 df1 = pd.read_excel(io=path)
 df2 = pd.read_excel(io=path)
 df3 = pd.read_excel(io=path)
@@ -50,3 +48,4 @@ df3 = pd.read_excel(io=path)
 df = df1.append(df2, df3)
 
 df.to_excel(path)
+'''
