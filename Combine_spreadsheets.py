@@ -28,16 +28,14 @@ def Combine(args):
 	
 	output:
 	A appended dataframe of all the spreadsheets.'''
-	data = pd.DataFrame()
-	try:
-		df = pd.read_excel(args)
-		data = data.append(df)
-	except:
-		print('This argument is not a path')
+	position = 1
+	while (args >= position):
+		print("parameter %i: %s" % (position, sys.argv[position]))
+		position = position + 1
 
-	return data
 if __name__ == '__main__':
-	Combine(sys.argv)
+	sheets = len(sys.argv) - 1
+	Combine(sheets)
 
 # Here is how I would do this normally:
 '''
