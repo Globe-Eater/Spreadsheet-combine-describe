@@ -28,6 +28,8 @@ def Combine(*args):
 	
 	output:
 	A appended dataframe of all the spreadsheets.'''
+	# Dev note: I need to read in the arguments into dataframes before I can use the append function in pandas. 
+	df = pd.DataFrame()
 	df = df.append(*args)
 	print(*args)
 	return df
