@@ -36,6 +36,9 @@ def Combine(args):
 		data = data.append(df)
 		position = position + 1
 		print(data)
+	data.describe()
+	data.info()
+	data.to_excel('CombinedSheets.xlsx')
 	return data
 
 if __name__ == '__main__':
