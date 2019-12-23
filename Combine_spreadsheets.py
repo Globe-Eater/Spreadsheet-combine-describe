@@ -22,22 +22,31 @@ Psudo code:
 from argparse import ArgumentParser, RawTextHelpFormatter
 import pandas as pd
  
-def Combine(*args):
+def Combine(args):
 	'''Usage:
 	python Combine_spreadsheets.py <pathname to excelfile> , <additonal paths>
 	
 	output:
 	A appended dataframe of all the spreadsheets.'''
-	# Dev note: I need to read in the arguments into dataframes before I can use the append function in pandas. 
 	df = pd.DataFrame()
-	df = df.append(*args)
-	print(*args)
+	sheets = pd.read_excel(io=args)
+	df = df.append(args)
+	print(args)
 	return df
 
 if __name__ == '__main__':
 	parser = ArgumentParser(formatter_class=RawTextHelpFormatter)
 	parser.add_argument(
 		"files", metavar="file", type=str, nargs='+', help="Please enter the files you want concated:")
-	
 	args = parser.parse_args()
+	print(args)
 	Combine(args)
+
+# Here is how I would do this normally:
+df1 = pd.read_excel(io=path)
+df2 = pd.read_excel(io=path)
+df3 = pd.read_excel(io=path)
+
+df = df1.append(df2, df3)
+
+df.to_excel(path)
