@@ -31,7 +31,13 @@ def Combine(args):
 	position = 1
 	while (args >= position):
 		print("parameter %i: %s" % (position, sys.argv[position]))
+		df = pd.read_excel(sys.argv[position])
+		if df.equals(df):
+			pass
+		else:
+			df = df.append(df)
 		position = position + 1
+		print(df)
 
 if __name__ == '__main__':
 	sheets = len(sys.argv) - 1
