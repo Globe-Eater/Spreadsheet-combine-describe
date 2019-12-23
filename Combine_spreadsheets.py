@@ -28,16 +28,15 @@ def Combine(args):
 	
 	output:
 	A appended dataframe of all the spreadsheets.'''
+	data = pd.DataFrame()
 	position = 1
 	while (args >= position):
 		print("parameter %i: %s" % (position, sys.argv[position]))
 		df = pd.read_excel(sys.argv[position])
-		if df.equals(df):
-			pass
-		else:
-			df = df.append(df)
+		data = data.append(df)
 		position = position + 1
-		print(df)
+		print(data)
+	return data
 
 if __name__ == '__main__':
 	sheets = len(sys.argv) - 1
